@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Foldable Birthday Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            color: #ff4081;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .card-container {
+            perspective: 1000px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card {
+            width: 700px;
+            height: 500px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .card:hover {
+            transform: rotateY(540deg);
+        }
+
+        .card-front, .card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-front {
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card-back {
+            background:  lightBlue;
+            transform: rotateY(180deg);
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .balloons-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .balloon {
+            width: 60px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .balloon:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 50px;
+            background: gold;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .blue { background: blue; left: 10%; animation-delay: 0s; }
+        .cyan { background: cyan; left: 20%; animation-delay: 1s; }
+        .red { background: red; left: 30%; animation-delay: 2s; }
+        .lime { background: lime; left: 40%; animation-delay: 3s; }
+        .yellow { background: yellow; left: 50%; animation-delay: 4s; }
+        .magenta { background: megenta; left: 60%; animation-delay: 5s; }
+        .green { background: green; left: 70%; animation-delay: 6s; }
+        .maroon { background: maroon; left: 80%; animation-delay: 7s; }
+        .purple { background: purple; left: 90%; animation-delay: 8s; }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body bgcolor="red" >
+    <h1>Happy Birthday!</h1>
+    <div class="balloons-container">
+        <div class="balloon blue"></div>
+         <div class="balloon cyan"></div>
+        <div class="balloon red"></div>
+        <div class="balloon lime"></div>
+        <div class="balloon yellow"></div>
+        <div class="balloon magenta"></div>
+        <div class="balloon green"></div>
+         <div class="balloon maroon"></div>
+        <div class="balloon purple"></div>
+    </div>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-front">
+                hold the card to reverse
+            </div>
+            <div class="card-back">
+                <center><h2>HAPPY BIRTHDAY ARNESH!</h2></center>
+                 <p>TO</p>
+                <p>ARNESH</p>
+                <p><font style="Goudy Old Style"><i><h3>Wishing you a wonderful birthday filled with happiness, love, and laughter! May this special day bring you countless joyful moments and unforgettable memories. You deserve all the success, health, and happiness in the world. May your heart always be full of dreams, and may each step you take lead you to greater adventures. May today and the years ahead be filled with love, prosperity, and success. Have a fantastic birthday celebration! Best wishes always!</i></font></h3></p>
+                <p align="right">FROM</p>
+                <p align="right">shuvrangashu</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
